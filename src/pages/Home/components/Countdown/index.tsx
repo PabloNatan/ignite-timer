@@ -22,13 +22,12 @@ export function Countdown() {
   const seconds = String(secondsAmount).padStart(2, '0')
 
   useEffect(() => {
-    console.log('Chamada')
     let cycleInterval: number
     if (activeCycle) {
       cycleInterval = setInterval(() => {
         const secondsDifference = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         if (secondsDifference >= totalSeconds) {
